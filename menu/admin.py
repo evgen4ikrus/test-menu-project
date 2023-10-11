@@ -3,11 +3,15 @@ from django.contrib import admin
 from .models import Menu, MenuItem
 
 
+class MenuItemInline(admin.TabularInline):
+    model = MenuItem
+
+
 @admin.register(Menu)
 class PositionAdmin(admin.ModelAdmin):
-    pass
+    inlines = [MenuItemInline]
 
 
-@admin.register(MenuItem)
-class PositionAdmin(admin.ModelAdmin):
-    pass
+# @admin.register(MenuItem)
+# class PositionAdmin(admin.ModelAdmin):
+#     pass

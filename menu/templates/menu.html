@@ -1,0 +1,9 @@
+{% load menu_tags %}
+<div class="list-group">
+  {% for item in menu_items %}
+  <div style="text-indent: {% widthratio item.get_order 1 20 %}px">
+    <a class="list-group-item list-group-item-action {% if item.id in active_ips %} active {% endif%}"
+       href="{{ item.get_absolute_url }}">{{ item.title }} {% if item.children.all %}↓...{% endif %}</a>
+  </div>
+  {% endfor %}
+</div>

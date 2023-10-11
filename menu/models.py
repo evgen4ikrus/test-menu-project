@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Menu(models.Model):
@@ -23,9 +24,23 @@ class MenuItem(models.Model):
         blank=True, null=True
     )
 
+    def get_parents_ids(self):
+        parents = str(self.id) + ' '
+        if self.parent:
+            parents += str(self.parent.get_parents_ids())
+        return parents
+
+    def get_order(self):
+        if self.parent:
+            return self.parent.get_order() + 1
+        return 0
+
     class Meta:
         verbose_name = 'Пункт меню'
         verbose_name_plural = 'Пункты меню'
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse("menu-item-detail", kwargs={"pk": self.pk})
