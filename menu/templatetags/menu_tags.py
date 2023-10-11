@@ -21,7 +21,7 @@ def draw_menu(context, menu_name):
         for index, item in enumerate(menu_items):
             if item.id != active_ip:
                 continue
-            for child in item.children.all():
+            for child in item.children.all().prefetch_related('children'):
                 menu_items.insert(index + 1, child)
             break
 

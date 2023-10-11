@@ -3,7 +3,7 @@ from django.urls import reverse
 
 
 class Menu(models.Model):
-    title = models.CharField('Название', max_length=100)
+    title = models.CharField('Название', max_length=100, unique=True)
 
     class Meta:
         verbose_name = 'Меню'
