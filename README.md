@@ -22,14 +22,12 @@ pip install -r requirements.txt
 ```commandline
 python3 manage.py migrate
 ```
+Загрузите тестовые данные в БД:
+```commandline
+python3 manage.py loaddata test_db_data.json
+```
 Запустите веб-приложение:
 ```commandline
 python3 manage.py runserver
 ```
 Проверьте работу веб-приложения перейдя по [ссылке](http://127.0.0.1:8000/admin/) в панель администратора.
-
-### Тестовые данные
-Для тестирования работы веб-приложения, наполните базу данных тестовыми данными:
-```commandline
-python3 manage.py loaddata db_test_data.json
-```
