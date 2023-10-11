@@ -1,12 +1,4 @@
-{% extends 'base.html' %}
-{% load menu_tags %}
-{% block content %}
-<div class="row">
-  <div class="col-md-3">
-    {% draw_menu 'main-menu' %}
-  </div>
-  <div class="col-md-9">
-    <h1>{{ menu_item.title }}</h1>
-  </div>
-</div>
-{% endblock content %}
+{% extends 'index.html' %}
+{% block detail %}
+<h1>{{ menu_item.title }}</h1>
+{% endblock detail %}
